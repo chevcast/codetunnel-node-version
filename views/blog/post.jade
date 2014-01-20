@@ -1,0 +1,110 @@
+// include ../shared/container
+.blogPost
+    if (user && user.author && user._id.toString() === blogPost.author._id.toString())
+        a.hijax.right.button(href='/blog/post/' + blogPost.slug + '/edit') Edit Post
+    .postTitle= blogPost.title
+    .postDate Posted #{moment(blogPost.date).fromNow()} by <a href="#{blogPost.author.url}">#{blogPost.author.name.first} #{blogPost.author.name.last}</a> #{blogPost.editedDate ? '(edited ' + moment(blogPost.editedDate).fromNow() + ')' : null}
+    .postContent!= markdown(blogPost.content)
+br
+hr
+#writeComment
+    if user
+        form#commentForm(action='/blog/post/' + blogPost.slug + '/comment/create', method='POST')
+            label(for="commentContent") Write Comment <a href="https://help.github.com/articles/github-flavored-markdown" style="font-size: 12px; font-style: italic;">(Github Flavored Markdown syntax supported)</a>
+            br
+            textarea#commentContent(name="commentContent", style="width: 925px; height: 150px;")
+            #previewContainer(style="display: none;")
+                include ../shared/container
+                    #commentPreview.preview
+            br
+            input(name="notify", type="checkbox", style="margin-right: 10px;")
+            label(for="notify", style="font-size: 12px;") Notify me of future comments.
+            br
+            br
+            input.button(type="submit", value="Add Comment")
+        br
+        br
+    else
+        div Login with one of the providers below to comment.
+        a#googleAuth.auth(href="/auth/google?hashTag=writeComment")
+            img(src="/images/google.png", style="width: 50px;")
+        a#twitterAuth.auth(href="/auth/twitter?hashTag=writeComment")
+            img(src="/images/twitter.png", style="width: 50px;")
+        a#facebookAuth.auth(href="/auth/facebook?hashTag=writeComment")
+            img(src="/images/facebook.png", style="width: 50px;")
+div#numComments #{blogPost.comments.length} Comment(s)
+hr
+#comments
+    each comment in blogPost.comments
+        include comment
+
+    script.
+        (function ($) {
+            // Setup comment preview.
+            $('#previewContainer').show();
+            var $commentContent = $('#commentContent'),
+                $commentPreview = $('#commentPreview');
+            $commentContent.typeWatch(function () {
+                $commentPreview.html(marked($commentContent.val(), { sanitize: true }));
+                $commentPreview.find('code').addClass('prettyprint');
+                prettyPrint();
+            }, 300);
+
+            // Hijax "Add Comment" form.
+            $('#commentForm').on('submit', function(e) {
+                e.preventDefault();
+                var $form = $(this),
+                    url = $form.attr('action'),
+                    method = $form.attr('method');
+                $.ajax({
+                    url: url,
+                    type: method,
+                    data: $form.serializeObject()
+                }).done(function(comment) {
+                    $commentContent.val('');
+                    $commentPreview.empty();
+                    var $comment = $(comment);
+                    var colorIndex = $(document).data('colorIndex'),
+                        items = $(document).data('colorItems');
+                    items.forEach(function (item) {
+                        $comment.find(item.element).addClass(item.cssClass + colorIndex);
+                    });
+                    $comment.find('code').addClass('prettyprint');
+                    $comment.hide().prependTo('#comments').slideDown('fast', function() {
+                        $('#numComments').text($('.comment').length + ' Comment(s)');
+                        $.scrollTo($(this), { duration: 'normal' });
+                    });
+                    prettyPrint();
+                }).error(function(data) {
+                    var data = JSON.parse(data.responseText);
+                    document.title = data.title;
+                    $('#banner').text(data.bannerText);
+                    $('#content').html(data.view);
+                });
+            });
+
+            // Hijax "Delete" buttons.
+            $('#comments').on('submit', 'form.deleteCommentForm', function(e) {
+                e.preventDefault();
+                if (confirm('Are you sure you want to delete this comment?')) {
+                    var $form = $(this),
+                        url = $form.attr('action'),
+                        method = $form.attr('method');
+                    $.ajax({
+                        url: url,
+                        type: method,
+                        data: $form.serializeObject()
+                    }).done(function() {
+                        $form.closest('.commentContainer').slideUp('fast', function() {
+                            $(this).remove();
+                            $('#numComments').text($('.comment').length + ' Comment(s)');
+                        });
+                    }).error(function(data) {
+                        var data = JSON.parse(data.responseText);
+                            document.title = data.title;
+                            $('#banner').text(data.bannerText);
+                            $('#content').html(data.view);
+                    });
+                }
+            });
+        })(jQuery);

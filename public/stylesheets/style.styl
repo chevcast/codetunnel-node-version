@@ -1,0 +1,252 @@
+mainColor = hsl(120, 50%, 75%)
+colorChangeSpeed = 2s
+
+opacity(value)
+  opacity: value
+  -moz-opacity: value
+  -webkit-opacity: value
+  -o-opacity: value
+  filter: unquote('alpha(opacity=' + round(value * 100) + ')')
+
+transition()
+  -webkit-transition: arguments
+  -moz-transition: arguments
+  -o-transition: arguments
+  -ms-transition: arguments
+  transition: arguments
+
+border-radius()
+  border-radius: arguments
+  -moz-border-radius: arguments
+  -webkit-border-radius: arguments
+  -o-border-radius: arguments
+
+.notransition
+  transition: none !important
+
+.container
+  position: relative
+
+.translucentFrame
+  background: mainColor
+  opacity: .35
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: 1
+  border-radius: 15px 100px 15px 100px
+  transition: background-color colorChangeSpeed linear
+
+.contentFrame
+  position: relative
+  z-index: 2
+  overflow-x: auto
+
+.contentFrame img
+	max-width: 100%
+
+body
+  background: #000 //darken(mainColor, 98%)
+  color: lighten(mainColor, 75%)
+  font-size: 15px
+  font-family: Helvetica
+  transition: color colorChangeSpeed linear, background-color colorChangeSpeed linear
+
+#frame
+  position: relative
+  margin: 15px auto auto auto
+  max-width: 1000px
+
+#console
+  transition: color colorChangeSpeed linear
+
+#footer
+	margin-top: 50px
+
+.backgroundImage
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  position: fixed
+  z-index: 0
+  opacity: .075
+
+.profilePictureRight
+  width: 50px
+  margin-left: 10px
+  float: right
+
+.profilePictureLeft
+  width: 50px
+  margin-right: 10px
+  float: left
+
+#banner
+  text-align: center
+  font-size: 55px
+  padding: 15px
+  font-family: Consolas, "Courier New"
+  border-bottom: solid 1px darken(mainColor, 90%)
+  transition: border-color colorChangeSpeed linear
+  a
+    display: inline-block
+  img
+    height: 200px
+    width: auto
+    display: inline-block
+
+#navigation
+  margin: 0
+  padding: 15px
+  li
+    display: inline
+  li.nav
+    margin-right: 35px
+    font-size: 17px
+    font-weight: bold
+
+#content
+  clear: both
+  padding: 25px
+  overflow-x: auto
+  line-height: 1.5
+
+.postContent img
+  border-radius: 7.5px 30px 7.5px 30px
+  border: solid 2px #000;
+
+pre
+  padding: 15px
+  background: #111
+  border-radius: 7.5px 30px 7.5px 30px
+  max-height: 750px
+  overflow: auto
+  line-height: 1
+  code
+    padding: 0
+    border-radius: 0
+
+code
+  padding: 0 3px 0 3px
+  border-radius: 3px
+  font-family: Consolas, "Courier New"
+
+blockquote
+  //background: #000
+  border-radius: 5px
+  max-height: 750px
+  overflow: auto
+  font-style: italic
+  padding: 0 10px 0 10px
+  //p:before
+  //  content: '“'
+  //  font-size: 30px
+  //p:after
+  //  content: '”'
+  //  font-size: 30px
+
+input, textarea
+  background: transparent
+  border: dashed 1px lighten(mainColor, 25%)
+  border-radius: 5px
+  padding: 10px
+  color: lighten(mainColor, 55%)
+  transition: color colorChangeSpeed linear
+
+hr
+  border: solid 1px darken(mainColor, 90%)
+
+a, a:visited
+  color: lighten(mainColor, 25%)
+  text-decoration: none
+  transition: color colorChangeSpeed linear
+a:hover
+  text-decoration: underline
+
+.postTitle
+  font-size: 20px
+  font-weight: bold
+.postDate, .commentDate
+  font-style: italic
+  font-size: 13px
+.managePost
+  font-size: 13px
+
+.comment
+  padding: 50px 25px 50px 25px
+
+.commentContainer
+  margin: 12.5px 0 12.5px
+
+.commentContent
+  padding-top: 5px
+  clear: both
+
+.postSummaryContent
+  padding: 50px 25px 50px 25px
+
+.postSummary
+  margin-bottom: 15px
+
+.pageControls
+  clear: both
+  margin-bottom: 15px
+  .pageLink
+    margin-right: 10px
+
+.right
+  float: right
+  text-align: right
+
+.left
+  float: left
+  text-align: left
+
+.button
+  padding: 3px 5px 3px 5px
+  color: darken(mainColor, 75%) !important
+  background-color: lighten(mainColor, 25%)
+  border: none
+  border-radius: 25px
+  transition: background-color colorChangeSpeed linear
+  cursor: pointer
+
+.button:hover
+  background-color: darken(mainColor, 50%)
+  color: lighten(mainColor, 85%) !important
+  text-decoration: none
+
+.preview
+	padding: 50px 25px 50px 25px
+
+.auth
+	margin: 15px
+	display: inline-block
+
+colors = 0 15 30 45 60 75 90 105 120 135 150 165 180 195 210 225 240 255 270 285 300 315 330 345
+//colors = 0 30 60 90 120 150 180 210 240 270 300 330
+
+for hue, index in colors
+  color = hsl(hue, 50%, 75%)
+  .color{index}
+    color: color !important
+  .bodyColor{index}
+    color: lighten(color, 75%) !important
+  .borderColor{index}
+    border-color: darken(color, 90%) !important
+  a.linkColor{index}, a.linkColor{index}:visited
+    color: lighten(color, 25%)
+  .containerColor{index}
+    background-color: color !important
+  .buttonColor{index}
+    color: darken(color, 75%) !important
+    background-color: lighten(color, 25%)
+  .buttonColor{index}:hover
+    background-color: darken(color, 50%)
+    color: lighten(color, 85%) !important
+  .inputColor{index}
+    border-color: lighten(color, 25%) !important
+    color: lighten(color, 55%)

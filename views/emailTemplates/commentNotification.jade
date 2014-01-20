@@ -1,0 +1,6 @@
+div #{comment.author.name.first} posted a comment on a post your are following titled "[#{blogPost.title}](http://#{process.env.DOMAIN}/blog/post/#{blogPost.slug}#comment-#{comment._id})".
+br
+div http://#{process.env.DOMAIN}/blog/post/#{blogPost.slug}#comment-#{comment._id}
+br
+br
+div(style="font-size: 11px;") Click [here](http://#{process.env.DOMAIN}/unsubscribe/#{notification._id}) to disable notifications for this post.

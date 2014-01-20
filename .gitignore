@@ -1,0 +1,21 @@
+<<<<<<< HEAD
+.idea/
+config.js
+*.swp
+=======
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+
+pids
+logs
+results
+
+npm-debug.log
+node_modules
+>>>>>>> 540373775e1a8be86cf456dbe502e4b4b29a12e3

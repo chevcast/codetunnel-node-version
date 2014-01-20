@@ -1,0 +1,11 @@
+.postSummary
+    include ../shared/container
+        .postSummaryContent
+            if (user && user.author && user._id.toString() === blogPost.author._id.toString())
+                a.hijax.right.button(href='/blog/post/' + blogPost.slug + '/edit') Edit Post
+            a.hijax.postTitle(href='/blog/post/' + blogPost.slug)= blogPost.title
+            .postDate Posted #{moment(blogPost.date).fromNow()} by <a href="#{blogPost.author.url}">#{blogPost.author.name.first} #{blogPost.author.name.last}</a> #{blogPost.editedDate ? '(edited ' + moment(blogPost.editedDate).fromNow() + ')' : null}
+            if (blogPost.comments.length > 0)
+                .postDate #{blogPost.comments.length} Comment(s)
+            br
+            div.postContent!= markdown(blogPost.content)

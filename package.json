@@ -1,0 +1,35 @@
+{
+  "name": "CodeTunnel",
+  "domains": [
+    "codetunnel.com",
+    "www.codetunnel.com"
+  ],
+  "version": "1.2.0-8",
+  "private": true,
+  "scripts": {
+    "start": "app.js"
+  },
+  "dependencies": {
+    "express": "*",
+    "jade": "*",
+    "stylus": "*",
+    "async": "*",
+    "moment": "*",
+    "marked": "*",
+    "string": "*",
+    "azure": "*",
+    "connect-mongoskin": "*",
+    "mongoskin": "*",
+    "passport-facebook": "*",
+    "nodemailer": "*",
+    "passport": "*",
+    "passport-google-oauth": "*",
+    "passport-twitter": "*",
+    "shotgun": "*",
+    "shotgun-client": "*"
+  },
+  "subdomain": "codetunnel",
+  "engines": {
+    "node": "0.10.x"
+  }
+}

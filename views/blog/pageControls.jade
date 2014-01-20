@@ -1,0 +1,16 @@
+div.pageControls
+    if totalPages > 1
+        - var minPage = currentPage <= 5 ? 1 : (currentPage > totalPages - 5 ? totalPages - 10 : currentPage - 5);
+        - var maxPage = minPage + 10 < totalPages ? minPage + 10 : totalPages;
+        if currentPage > 1
+            a.hijax.pageLink(href='/page1') &lt;&lt;first
+            a.hijax.pageLink(href='/page' + (currentPage - 1)) &lt;prev
+        - for (var page = minPage; page < maxPage + 1; page++) {
+            if page === currentPage
+                a.hijax.pageLink.button(href='/page' + page)= page
+            else
+                a.hijax.pageLink(href='/page' + page)= page
+        - }
+        if currentPage < totalPages
+            a.hijax.pageLink(href='/page' + (currentPage + 1)) next&gt;
+            a.hijax.pageLink(href='/page' + totalPages) last&gt;&gt;

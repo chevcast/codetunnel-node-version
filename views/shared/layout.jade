@@ -1,0 +1,65 @@
+doctype html
+html
+    head
+        title= title
+        link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+        link(rel='stylesheet', type='text/css', href='/stylesheets/prettify.css')
+        script(src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+        script(src='/scripts/jquery.scrollTo.js')
+        script(src='/scripts/prettify/prettify.js')
+        script(src='/scripts/marked.js')
+        script(src='/scripts/preloadImages.js')
+        script(src='/scripts/ajaxNavigation.js')
+        //-script(src='/scripts/animateColor.js')
+        script(src='/scripts/jquery.typeWatch.js')
+        script(src='/scripts/initialize.js')
+        //script(src='/shotgun/shotgun.client.js')
+    body
+        img(style="display: none;", src="/images/MediaThumbnail.jpg")
+        img.backgroundImage(src="/images/codetunnel.jpg")
+        #frame
+            include container
+                #banner
+                    a.hijax(href="/")
+                        img(src="/images/banner.png", alt=bannerText)
+                ul#navigation
+                    li.nav
+                        a.hijax(href="/") Home
+                    li.nav
+                        a.hijax(href="/about") About
+                    //li.nav
+                        a.hijax(href="/resume") Hire Me!
+                    li.nav
+                        a(href="http://github.com/chevex") My Github
+                    li.nav
+                        a(href="http://stackoverflow.com/users/498624/alex-ford") My StackOverflow
+                    li.right
+                        if (!user)
+                            a.hijax(href="/login") Login
+                        else
+                            a(href=user.url)
+                                img.profilePictureRight(src=user.picture)
+                            span Welcome, <a href="#{user.url}">#{user.name.first}</a>!
+                            br
+                            span(style="font-size: small;") (<a href="/logout">logout</a>)
+                #content
+                    block content
+                #footer
+    script.
+        try
+        {
+            // Google Analytics
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-7292713-15']);
+            _gaq.push(['_trackPageview']);
+            (function ()
+            {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        }
+        catch (err)
+        {
+            alert(err.message);
+        }

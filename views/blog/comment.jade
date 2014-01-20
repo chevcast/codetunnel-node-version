@@ -1,0 +1,19 @@
+.commentContainer
+    include ../shared/container
+        .comment
+            - var isPostAuthor = user && (user.author && user._id.toString() === blogPost.author._id.toString());
+            - var isCommentAuthor = user && (user._id.toString() === comment.author._id.toString());
+            if (isPostAuthor || isCommentAuthor)
+                form.deleteCommentForm(action='/blog/post/' + blogPost.slug + '/comment/' + comment._id + '/delete', method='POST')
+                    input.right.button(type="submit", value="Delete")
+            if (comment.author.url)
+                a(href=comment.author.url)
+                    img.profilePictureLeft(src=comment.author.picture)
+            else
+                img.profilePictureLeft(src=comment.author.picture)
+            if (comment.author.url)
+                a(href=comment.author.url, name= 'comment-' + comment._id)= comment.author.name.first + ' ' + comment.author.name.last
+            else
+                span= comment.author.name.first + ' ' + comment.author.name.last
+            .commentDate posted #{moment(comment.date).fromNow()}
+            .commentContent!= markdown(comment.content, { sanitize: true })

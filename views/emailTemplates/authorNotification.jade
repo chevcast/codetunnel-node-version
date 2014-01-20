@@ -1,0 +1,3 @@
+div #{comment.author.name.first} posted a comment on your blog post titled "[#{blogPost.title}](http://#{process.env.DOMAIN}/blog/post/#{blogPost.slug}#comment-#{comment._id})".
+br
+div= comment.content

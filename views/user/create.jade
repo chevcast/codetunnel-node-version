@@ -1,0 +1,8 @@
+extends ../shared/layout
+block content
+    form(action="/user/create", method="POST")
+        label(for="email") Email:
+        br
+        input(type="text", name="email", value=user.email)
+        br
+        input(type="submit", value="Register")

@@ -1,0 +1,41 @@
+form.hijax(action=blogPost ? 'update' : 'create', method="POST")
+    if (blogPost)
+        input(name="deletePost", type="checkbox", style="margin-right: 10px;")
+        label(for="deletePost") Delete post
+        br
+        br
+    label(for="postTitle") Title
+    br
+    input#postTitle(name="postTitle", type="text", style="width: 925px;", value= blogPost ? blogPost.title : (user.activePost ? user.activePost.title : null))
+    br
+    br
+    label(for="postContent") Content <a href="https://help.github.com/articles/github-flavored-markdown" style="font-size: 12px; font-style: italic;">(Github Flavored Markdown syntax supported)</a>
+    br
+    textarea#postContent(name="postContent", style="width: 925px; height: 400px;")= blogPost ? blogPost.content : (user.activePost ? user.activePost.content : null)
+    #previewContainer(style="display: none;")
+        include ../shared/container
+            #postPreview.preview
+    script.
+        // Setup post preview.
+        $('#previewContainer').show();
+        var $postContent = $('#postContent'),
+            $postPreview = $('#postPreview');
+        function updatePreview() {
+            $postPreview.html(marked($postContent.val()));
+            $postPreview.find('code').addClass('prettyprint');
+            prettyPrint();
+        }
+        updatePreview();
+        $postContent.typeWatch(updatePreview, 500);
+
+    if (!blogPost)
+        script.
+            // Auto-save current post.
+            $('#postContent, #postTitle').typeWatch(function() {
+                $.post('/blog/post/autosave', {
+                    postTitle: $('#postTitle').val(),
+                    postContent: $('#postContent').val()
+                });
+            }, 500);
+    br
+    input.button(type="submit", value=blogPost ? 'Update' : 'Create')
