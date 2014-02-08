@@ -28,4 +28,9 @@ var shotgun = require('shotgun'),
     shotgunClient = require('shotgun-client'),
     shell = new shotgun.Shell();
 
-shotgunClient.attach(server, shell);
+shotgunClient
+    .attach(server, shell)
+    .io.set(
+        'transports', 
+        [ 'xhr-polling', 'jsonp-polling' ]
+    );
