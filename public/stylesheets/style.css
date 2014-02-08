@@ -56,6 +56,16 @@ body {
   max-width: 1000px;
 }
 #console {
+  background-color: #000;
+  color: #ccc;
+  padding: 15px;
+  height: 250px;
+  width: 60%;
+  overflow-y: auto;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -o-border-radius: 15px;
   -webkit-transition: color 2s linear;
   -moz-transition: color 2s linear;
   -o-transition: color 2s linear;

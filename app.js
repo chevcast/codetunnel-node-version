@@ -23,3 +23,9 @@ routes.register(app);
 var server = app.listen(port, function(){
   console.log("App is listening on port " + port);
 });
+
+var shotgun = require('shotgun'),
+    shotgunClient = require('shotgun-client'),
+    shell = new shotgun.Shell();
+
+shotgunClient.attach(server, shell);
