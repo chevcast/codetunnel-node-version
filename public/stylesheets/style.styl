@@ -1,4 +1,5 @@
-mainColor = hsl(120, 50%, 75%)
+mainColor = #fff
+secondaryColor = #9CB83A
 colorChangeSpeed = 2s
 
 opacity(value)
@@ -29,7 +30,7 @@ border-radius()
 
 .translucentFrame
   background: mainColor
-  opacity: .35
+  opacity: .80
   position: absolute
   top: 0
   left: 0
@@ -48,8 +49,8 @@ border-radius()
 	max-width: 100%
 
 body
-  background: #000 //darken(mainColor, 98%)
-  color: lighten(mainColor, 75%)
+  background: lighten(invert(mainColor), 25%)
+  color: invert(mainColor)
   font-size: 15px
   font-family: Helvetica
   transition: color colorChangeSpeed linear, background-color colorChangeSpeed linear
@@ -94,6 +95,8 @@ body
   float: left
 
 #banner
+  background: #222
+  border-radius: 15px 100px 0 0
   text-align: center
   font-size: 55px
   padding: 15px
@@ -128,9 +131,9 @@ body
   border: solid 2px #000;
 
 pre
-  padding: 15px
-  background: #111
-  border-radius: 7.5px 30px 7.5px 30px
+  padding: 25px
+  background: #222
+  border-radius: 10px 50px 10px 50px
   max-height: 750px
   overflow: auto
   line-height: 1
@@ -139,9 +142,11 @@ pre
     border-radius: 0
 
 code
-  padding: 0 3px 0 3px
+  background: #222
+  padding: 3px 5px 3px 5px
   border-radius: 3px
-  font-family: Consolas, "Courier New"
+  font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace 
+  font-size: 14px
 
 blockquote
   //background: #000
@@ -169,7 +174,7 @@ hr
   border: solid 1px darken(mainColor, 90%)
 
 a, a:visited
-  color: lighten(mainColor, 25%)
+  color: darken(secondaryColor, 25%)
   text-decoration: none
   transition: color colorChangeSpeed linear
 a:hover
@@ -195,7 +200,7 @@ a:hover
   clear: both
 
 .postSummaryContent
-  padding: 50px 25px 50px 25px
+  padding: 50px
 
 .postSummary
   margin-bottom: 15px

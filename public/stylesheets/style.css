@@ -9,12 +9,12 @@
   position: relative;
 }
 .translucentFrame {
-  background: #9fdf9f;
-  opacity: 0.35;
-  -moz-opacity: 0.35;
-  -webkit-opacity: 0.35;
-  -o-opacity: 0.35;
-  filter: alpha(opacity=35);
+  background: #fff;
+  opacity: 0.8;
+  -moz-opacity: 0.8;
+  -webkit-opacity: 0.8;
+  -o-opacity: 0.8;
+  filter: alpha(opacity=80);
   position: absolute;
   top: 0;
   left: 0;
@@ -40,8 +40,8 @@
   max-width: 100%;
 }
 body {
-  background: #000;
-  color: #e7f7e7;
+  background: #404040;
+  color: #000;
   font-size: 15px;
   font-family: Helvetica;
   -webkit-transition: color 2s linear, background-color 2s linear;
@@ -101,11 +101,16 @@ body {
   float: left;
 }
 #banner {
+  background: #222;
+  border-radius: 15px 100px 0 0;
+  -moz-border-radius: 15px 100px 0 0;
+  -webkit-border-radius: 15px 100px 0 0;
+  -o-border-radius: 15px 100px 0 0;
   text-align: center;
   font-size: 55px;
   padding: 15px;
   font-family: Consolas, "Courier New";
-  border-bottom: solid 1px #0a1d0a;
+  border-bottom: solid 1px #1a1a1a;
   -webkit-transition: border-color 2s linear;
   -moz-transition: border-color 2s linear;
   -o-transition: border-color 2s linear;
@@ -146,12 +151,12 @@ body {
   border: solid 2px #000;
 }
 pre {
-  padding: 15px;
-  background: #111;
-  border-radius: 7.5px 30px 7.5px 30px;
-  -moz-border-radius: 7.5px 30px 7.5px 30px;
-  -webkit-border-radius: 7.5px 30px 7.5px 30px;
-  -o-border-radius: 7.5px 30px 7.5px 30px;
+  padding: 25px;
+  background: #222;
+  border-radius: 10px 50px 10px 50px;
+  -moz-border-radius: 10px 50px 10px 50px;
+  -webkit-border-radius: 10px 50px 10px 50px;
+  -o-border-radius: 10px 50px 10px 50px;
   max-height: 750px;
   overflow: auto;
   line-height: 1;
@@ -164,12 +169,14 @@ pre code {
   -o-border-radius: 0;
 }
 code {
-  padding: 0 3px 0 3px;
+  background: #222;
+  padding: 3px 5px 3px 5px;
   border-radius: 3px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   -o-border-radius: 3px;
-  font-family: Consolas, "Courier New";
+  font-family: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
+  font-size: 14px;
 }
 blockquote {
   border-radius: 5px;
@@ -184,13 +191,13 @@ blockquote {
 input,
 textarea {
   background: transparent;
-  border: dashed 1px #b7e7b7;
+  border: dashed 1px #fff;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   -o-border-radius: 5px;
   padding: 10px;
-  color: #d4f1d4;
+  color: #fff;
   -webkit-transition: color 2s linear;
   -moz-transition: color 2s linear;
   -o-transition: color 2s linear;
@@ -198,11 +205,11 @@ textarea {
   transition: color 2s linear;
 }
 hr {
-  border: solid 1px #0a1d0a;
+  border: solid 1px #1a1a1a;
 }
 a,
 a:visited {
-  color: #b7e7b7;
+  color: #758a2b;
   text-decoration: none;
   -webkit-transition: color 2s linear;
   -moz-transition: color 2s linear;
@@ -236,7 +243,7 @@ a:hover {
   clear: both;
 }
 .postSummaryContent {
-  padding: 50px 25px 50px 25px;
+  padding: 50px;
 }
 .postSummary {
   margin-bottom: 15px;
@@ -258,8 +265,8 @@ a:hover {
 }
 .button {
   padding: 3px 5px 3px 5px;
-  color: #184818 !important;
-  background-color: #b7e7b7;
+  color: #404040 !important;
+  background-color: #fff;
   border: none;
   border-radius: 25px;
   -moz-border-radius: 25px;
@@ -273,8 +280,8 @@ a:hover {
   cursor: pointer;
 }
 .button:hover {
-  background-color: #308f30;
-  color: #f1faf1 !important;
+  background-color: #808080;
+  color: #fff !important;
   text-decoration: none;
 }
 .preview {

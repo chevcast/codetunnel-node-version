@@ -11,7 +11,7 @@
 }
 .kwd
 {
-  color: #93C763;
+  color: #8F9C6C;
 }
 .com
 {
@@ -57,9 +57,6 @@ ol.linenums
 {
   margin-top: 0;
   margin-bottom: 0;
-}
-.prettyprint {
-  background: #111;
 }
 li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9
 {
