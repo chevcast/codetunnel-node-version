@@ -199,7 +199,7 @@ textarea {
   padding: 10px;
 }
 hr {
-  border: solid 1px #1a1a1a;
+  border: solid 1px #bbb;
 }
 a,
 a:visited {
@@ -284,6 +284,9 @@ a:hover {
 .auth {
   margin: 15px;
   display: inline-block;
+}
+#comments .translucentFrame {
+  border: solid 1px #bbb;
 }
 .color0 {
   color: #df9f9f !important;
