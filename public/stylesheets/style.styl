@@ -58,7 +58,7 @@ body
 #frame
   position: relative
   margin: 15px auto auto auto
-  max-width: 1000px
+  max-width: 1250px
 
 #console
   font-family: "courier new"
@@ -163,12 +163,8 @@ blockquote
   //  font-size: 30px
 
 input, textarea
-  background: transparent
-  border: dashed 1px lighten(mainColor, 25%)
   border-radius: 5px
   padding: 10px
-  color: lighten(mainColor, 55%)
-  transition: color colorChangeSpeed linear
 
 hr
   border: solid 1px darken(mainColor, 90%)
@@ -221,16 +217,16 @@ a:hover
 
 .button
   padding: 3px 5px 3px 5px
-  color: darken(mainColor, 75%) !important
-  background-color: lighten(mainColor, 25%)
+  color: mainColor
+  background-color: invert(mainColor)
   border: none
   border-radius: 25px
   transition: background-color colorChangeSpeed linear
   cursor: pointer
 
 .button:hover
-  background-color: darken(mainColor, 50%)
-  color: lighten(mainColor, 85%) !important
+  background-color: mainColor
+  color: #000
   text-decoration: none
 
 .preview
