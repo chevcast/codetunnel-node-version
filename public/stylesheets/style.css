@@ -284,7 +284,8 @@ a:hover {
   margin: 15px;
   display: inline-block;
 }
-#comments .translucentFrame {
+#comments .translucentFrame,
+#previewContainer .translucentFrame {
   border: solid 1px #bbb;
 }
 .color0 {
