@@ -179,6 +179,8 @@ code {
   font-size: 14px;
 }
 blockquote {
+  background: #555;
+  color: #fff;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
@@ -190,18 +192,11 @@ blockquote {
 }
 input,
 textarea {
-  border: dashed 1px #fff;
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   -o-border-radius: 5px;
   padding: 10px;
-  color: #fff;
-  -webkit-transition: color 2s linear;
-  -moz-transition: color 2s linear;
-  -o-transition: color 2s linear;
-  -ms-transition: color 2s linear;
-  transition: color 2s linear;
 }
 hr {
   border: solid 1px #1a1a1a;
@@ -264,8 +259,8 @@ a:hover {
 }
 .button {
   padding: 3px 5px 3px 5px;
-  color: #404040 !important;
-  background-color: #fff;
+  color: #fff;
+  background-color: #000;
   border: none;
   border-radius: 25px;
   -moz-border-radius: 25px;
@@ -279,8 +274,8 @@ a:hover {
   cursor: pointer;
 }
 .button:hover {
-  background-color: #808080;
-  color: #fff !important;
+  background-color: #fff;
+  color: #000;
   text-decoration: none;
 }
 .preview {
