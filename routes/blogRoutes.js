@@ -35,7 +35,7 @@ exports.register = function (app) {
 	});
 	app.post('/blog/post/create', authorize.isAuthor, blogController.createPost);
 	app.post('/blog/post/autosave', authorize.isAuthenticated, blogController.autoSave);
-	app.get('/blog/post/new', authorize.isAuthor, blogController.newPost);
+	app.get('/blog/post/new', /*authorize.isAuthor,*/ blogController.newPost);
 	app.get('/blog/post/:slug', storeRedirectUrl, blogController.post);
 	app.get(/^(?:\/(?:blog\/)?page(\d+))?\/?$/i, storeRedirectUrl, function (req, res) {
 		// Set named parameter to first capture group. Express, you need to figure this out >:(

@@ -41,7 +41,7 @@
 }
 body {
   background: #404040;
-  color: #000;
+  color: #404040;
   font-size: 15px;
   font-family: Helvetica;
   -webkit-transition: color 2s linear, background-color 2s linear;
@@ -53,7 +53,7 @@ body {
 #frame {
   position: relative;
   margin: 15px auto auto auto;
-  max-width: 1250px;
+  max-width: 1000px;
 }
 #console {
   font-family: "courier new";
@@ -135,11 +135,10 @@ body {
 #navigation li.nav {
   margin-right: 35px;
   font-size: 17px;
-  font-weight: bold;
 }
 #content {
   clear: both;
-  padding: 25px;
+  padding: 50px;
   overflow-x: auto;
   line-height: 1.5;
 }
@@ -203,7 +202,7 @@ hr {
 }
 a,
 a:visited {
-  color: #758a2b;
+  color: #566520;
   text-decoration: none;
   -webkit-transition: color 2s linear;
   -moz-transition: color 2s linear;

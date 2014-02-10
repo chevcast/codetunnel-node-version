@@ -10,23 +10,23 @@ include ../shared/container
         br
         hr
         #writeComment
-            if user
-                form#commentForm(action='/blog/post/' + blogPost.slug + '/comment/create', method='POST')
-                    label(for="commentContent") Write Comment <a href="https://help.github.com/articles/github-flavored-markdown" style="font-size: 12px; font-style: italic;">(Github Flavored Markdown syntax supported)</a>
-                    br
-                    textarea#commentContent(name="commentContent", style="max-width: 1075px; width: 100%; height: 150px;")
-                    #previewContainer(style="display: none;")
-                        include ../shared/container
-                            #commentPreview.preview
-                    br
-                    input(name="notify", type="checkbox", style="margin-right: 10px;")
-                    label(for="notify", style="font-size: 12px;") Notify me of future comments.
-                    br
-                    br
-                    input.button(type="submit", value="Add Comment")
+            //-if user
+            form#commentForm(action='/blog/post/' + blogPost.slug + '/comment/create', method='POST')
+                label(for="commentContent") Write Comment <a href="https://help.github.com/articles/github-flavored-markdown" style="font-size: 12px; font-style: italic;">(Github Flavored Markdown syntax supported)</a>
+                br
+                textarea#commentContent(name="commentContent", style="max-width: 775px; width: 100%; height: 150px;")
+                #previewContainer(style="display: none;")
+                    include ../shared/container
+                        #commentPreview.preview
+                br
+                input(name="notify", type="checkbox", style="margin-right: 10px;")
+                label(for="notify", style="font-size: 12px;") Notify me of future comments.
                 br
                 br
-            else
+                input.button(type="submit", value="Add Comment")
+            br
+            br
+            //else
                 div Login with one of the providers below to comment.
                 a#googleAuth.auth(href="/auth/google?hashTag=writeComment")
                     img(src="/images/google.png", style="width: 50px;")

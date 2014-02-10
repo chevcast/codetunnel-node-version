@@ -50,7 +50,7 @@ border-radius()
 
 body
   background: lighten(invert(mainColor), 25%)
-  color: invert(mainColor)
+  color: lighten(invert(mainColor), 25%)
   font-size: 15px
   font-family: Helvetica
   transition: color colorChangeSpeed linear, background-color colorChangeSpeed linear
@@ -58,7 +58,7 @@ body
 #frame
   position: relative
   margin: 15px auto auto auto
-  max-width: 1250px
+  max-width: 1000px
 
 #console
   font-family: "courier new"
@@ -118,11 +118,10 @@ body
   li.nav
     margin-right: 35px
     font-size: 17px
-    font-weight: bold
 
 #content
   clear: both
-  padding: 25px
+  padding: 50px
   overflow-x: auto
   line-height: 1.5
 
@@ -171,7 +170,7 @@ hr
   border: solid 1px #bbb
 
 a, a:visited
-  color: darken(secondaryColor, 25%)
+  color: darken(secondaryColor, 45%)
   text-decoration: none
   transition: color colorChangeSpeed linear
 a:hover
