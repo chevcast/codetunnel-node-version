@@ -1,7 +1,7 @@
 // Development configuration.
 if (process.env.NODE_ENV !== 'production') {
-    var devVars = require('./dev-config.json');
-    for (var key in devVars) process.env[key] = devVars[key];
+  var devVars = require('./dev-config.json');
+  for (var key in devVars) process.env[key] = devVars[key];
 }
 
 // Load required modules.
@@ -25,7 +25,7 @@ var server = app.listen(port, function(){
 });
 
 var shotgun = require('shotgun'),
-    shotgunClient = require('shotgun-client'),
-    shell = new shotgun.Shell();
+  shotgunClient = require('shotgun-client'),
+  shell = new shotgun.Shell();
 
 shotgunClient .attach(server, shell);
